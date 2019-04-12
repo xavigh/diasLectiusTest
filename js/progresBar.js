@@ -3,15 +3,23 @@
 // Progress Bar percentange display.
 // References from w3schools.com javascript progress bar.
 
-function progressBarAnimation() {
+function progressBarAnimation(daysLeft) {
 
 
       var barEl = document.getElementById("progresBar");
       var width = 1;
-      var id = setInterval(frame, 10);
+      var id = setInterval(frame, 40);
+
+      var daysDone =  87 - daysLeft;
+      var percentOfprogressDone = ( daysDone * 100) / 87;
+
+
+      console.log(daysLeft);
+      console.log(daysDone);
+      console.log(percentOfprogressDone);
 
       function frame(){
-        if(width >= 100){
+        if(width >= percentOfprogressDone){
           clearInterval(id);
         } else {
           width++;
@@ -19,4 +27,10 @@ function progressBarAnimation() {
           barEl.innerHTML= width * 1 +"%";
         }
       }
+
+
+
+
+
+
 }// end of animateBar
